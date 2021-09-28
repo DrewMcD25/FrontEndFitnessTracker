@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const myroutines = () => {
+const MyRoutines = () => {
     return (
         <div id ="myroutines">
             <h1>My Routines</h1>
@@ -10,4 +10,4 @@ const myroutines = () => {
     )
 }
 
-export default myroutines
+export default MyRoutines
