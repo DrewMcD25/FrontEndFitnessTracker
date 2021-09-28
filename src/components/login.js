@@ -1,61 +1,60 @@
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import { useHistory, userHistory } from 'react-router-dom';
 
-import React, {useState} from "react";
-
-import {Link} from 'react-router-dom';
-
-
-const Login  = () => {
-
-    const BASE_URL = "http://fitnesstrac-kr.herokuapp.com/api";
-
-    const [user, setUser] = useState ('');
-    const [password, setPassword] = useState ('');
-
-    async function storeToken(event) {
-        event.preventDefault();
-        console.log (user, password);
-        try {
-            const response = await fetch(`${BASE_URL}/users/login`, {
-                method: 'POST', 
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                  body: JSON.stringify({
-                         user: {
-                            username: user,
-                            password: password
-      }
-
-        })
-            }); 
-            const data = await response.json();
-            console.log(data);
-            localStorage.setItem('vb-token', data.token);
-        } catch (error) {
-            console.log (error);
-        }
+const Login = ({ userToken }) => {
+    // function handleChange(event) {
+    //     const userKey = event.target.attributes['name'].value
+    //     const newState = { ...user }
+    //     newState[userKey] = event.target.value
+    //     setUser(newState)
+    //}
+    let history = useHistory();
+    const [user, setUser] = useState('')
+    const [password, setPassword] = useState('')
+    async function saveToken(event) {
+        event.preventDefault()
+        fetch('http://fitnesstrac-kr.herokuapp.com/api', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                user: {
+                    username: event.target.username.value,
+                    password: event.target.password.value
+                }
+            })
+        }).then(response => response.json())
+            .then(result => {
+                localStorage.setItem("token", result.data.token)
+                console.log(result);
+            })
+            .catch(console.error);
     }
 
+async function onSubmit(e) {
+    e.preventDefault();
+    history.push('/');
+}
+
     return (
-        <div>
-            <Link to="/">FitnessTracker</Link>
-            <form onSubmit={storeToken}>
-                <input type="text"
-                        value={user}
-                        onChange={(event)=> setUser(event.target.value)}
-                        placeholder="username" />    
-                <input type="password"
-                        value={password}
-                        onChange={(event)=> setPassword(event.target.value)}
-                        placeholder="password"></input>
-                <button>Submit</button>
+        <div id="lilo">
+            <h1>LOGIN</h1>
+            <form id="form" onSubmit={saveToken, onSubmit}>
+                <input type="text" onChange={(event) => setUser(event.target.value)} value={user} required name="username" placeholder="username"></input>
+                <input type="password" onChange={(event) => setPassword(event.target.value)} value={password} required name="password" placeholder="password"></input>
+                <button>Log In</button>
             </form>
+            <h2>Not a member? Create an account to create and send messages! Otherwise, login with existing account!</h2>
+
         </div>
     )
+
+
 }
 
 
-
-
-
 export default Login;
+
+

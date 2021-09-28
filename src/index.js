@@ -1,6 +1,17 @@
+import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
+import Login from './components/login';
+import Home from './components/home'
+import Activities from './components/activities'
+import MyRoutines from './components/myroutines'
+import Navbar from './components/navbar';
+import Register from './components/register'
+import { BrowserRouter as Router, Route, Switch, Link, Redirect } from "react-router-dom"
+import './components/style/home.css'
+
 const App = () => {
     const [isNewUser, setIsNewUser] = useState(true)
-    const [postList, setPostList] = useState([])
+    
     const renderAuthForm = (e) => {
         if (isNewUser) {
             return <Login toggleNewUser={setIsNewUser} />
