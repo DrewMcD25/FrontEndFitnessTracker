@@ -6,6 +6,7 @@ import Activities from './components/activities'
 import MyRoutines from './components/myroutines'
 import Navbar from './components/navbar';
 import Register from './components/register'
+import Routines from './components/routines'
 import { BrowserRouter as Router, Route, Switch, Link, Redirect } from "react-router-dom"
 import './components/style/home.css'
 
@@ -32,7 +33,7 @@ const App = () => {
                         <div>
                             <Route exact path="/login"><Login /></Route>
                             <Route exact path="/activities"><Activities/></Route>
-                            <Route exact path="/myroutines"><My_Routines/></Route>
+                            <Route exact path="/myroutines"><MyRoutines/></Route>
                             <Route exact path="/register"><Register /></Route>
                             <Route exact path="/"><Home /></Route>
                             <Route exact path="/routines"><Routines/></Route>

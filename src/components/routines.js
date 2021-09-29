@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const routines = () => {
+const Routines = () => {
     return(
         <div>
             <h1 id="routinesheader">Routines</h1>
@@ -9,4 +9,4 @@ const routines = () => {
     )
 }
 
-export default routines
+export default Routines

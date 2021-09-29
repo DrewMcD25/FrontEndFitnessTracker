@@ -46,7 +46,7 @@ async function onSubmit(e) {
                 <input type="password" onChange={(event) => setPassword(event.target.value)} value={password} required name="password" placeholder="password"></input>
                 <button>Log In</button>
             </form>
-            <h2>Not a member? Create an account to create and send messages! Otherwise, login with existing account!</h2>
+            <h2>Not a member? Create an account to save routines! Otherwise, login with existing account!</h2>
 
         </div>
     )
