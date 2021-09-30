@@ -12,6 +12,9 @@ import './components/style/home.css'
 
 const App = () => {
     const [isNewUser, setIsNewUser] = useState(true)
+    const [routinesList, setRoutinesList] = useState([])
+    const [activitiesList, setActivitiesList] = useState([])
+
     
     const renderAuthForm = (e) => {
         if (isNewUser) {
@@ -21,7 +24,7 @@ const App = () => {
         }
 
     }
-
+console.log(routinesList)
     return (
         <>
             <Router>
@@ -32,11 +35,11 @@ const App = () => {
                     <Switch>
                         <div>
                             <Route exact path="/login"><Login /></Route>
-                            <Route exact path="/activities"><Activities/></Route>
+                            <Route exact path="/activities"><Activities activitiesList={activitiesList} setActivitiesList={setActivitiesList}/></Route>
                             <Route exact path="/myroutines"><MyRoutines/></Route>
                             <Route exact path="/register"><Register /></Route>
                             <Route exact path="/"><Home /></Route>
-                            <Route exact path="/routines"><Routines/></Route>
+                            <Route exact path="/routines"><Routines routinesList={routinesList} setRoutinesList={setRoutinesList}/></Route>
                         </div>
                     </Switch>
                 </main>
