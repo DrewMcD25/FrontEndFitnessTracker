@@ -14,20 +14,20 @@ const Login = ({ userToken }) => {
     const [password, setPassword] = useState('')
     async function saveToken(event) {
         event.preventDefault()
-        fetch('http://fitnesstrac-kr.herokuapp.com/api', {
+        await fetch('http://fitnesstrac-kr.herokuapp.com/api/users/login', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                user: {
+                
                     username: event.target.username.value,
                     password: event.target.password.value
-                }
+                
             })
         }).then(response => response.json())
             .then(result => {
-                localStorage.setItem("token", result.data.token)
+                localStorage.setItem("token", result.token)
                 console.log(result);
             })
             .catch(console.error);
