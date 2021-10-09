@@ -4,7 +4,7 @@ import MyRoutines from './myroutines'
 
 const Routines = ({ routinesList, setRoutinesList }) => {
     useEffect(function () {
-        fetch('http://fitnesstrac-kr.herokuapp.com/api/routines')
+        fetch('https://fitnesstrac-kr.herokuapp.com/api/routines')
             .then(response => response.json())
             .then(result => {
                 console.log(result);

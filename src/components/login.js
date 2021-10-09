@@ -14,7 +14,7 @@ const Login = ({ userToken }) => {
     const [password, setPassword] = useState('')
     async function saveToken(event) {
         event.preventDefault()
-        await fetch('http://fitnesstrac-kr.herokuapp.com/api/users/login', {
+        await fetch('https://fitnesstrac-kr.herokuapp.com/api/users/login', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

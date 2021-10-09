@@ -1,5 +1,5 @@
 
-const BASE = 'http://fitnesstrac-kr.herokuapp.com/api'
+const BASE = 'https://fitnesstrac-kr.herokuapp.com/api'
 
 export async function getUsers() {
 
