@@ -31,6 +31,8 @@ const Login = ({ userToken }) => {
                 console.log(result);
             })
             .catch(console.error);
+               { alert(error.message)('Uh Oh Something Went Wrong')
+        }
     }
 
 async function onSubmit(e) {

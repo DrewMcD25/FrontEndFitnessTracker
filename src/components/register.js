@@ -20,7 +20,9 @@ const Register = () => {
             localStorage.setItem("token", result.token)
             console.log(result);
         })
-        .catch(console.error)
+        .catch(console.error);
+               { alert(error.message)('Uh Oh Something Went Wrong')
+        }
 
     }
 

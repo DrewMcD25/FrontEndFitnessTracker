@@ -7,6 +7,7 @@ const MyRoutines = () => {
     const [name, setName] = useState("")
     const [goal, setGoal] = useState("")
 console.log(name, goal)
+
     return (
         <div id="myroutines">
             <h1>My Routines</h1>
