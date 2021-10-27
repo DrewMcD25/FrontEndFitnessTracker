@@ -37,6 +37,12 @@ const Login = ({ userToken }) => {
 
 async function onSubmit(e) {
     e.preventDefault();
+    // if(username != user.username){
+    //     alert('invalid username')
+    // }
+    // else if(password != user.password){
+    //     alert('invalid password')
+    // }
     history.push('/');
 }
 
